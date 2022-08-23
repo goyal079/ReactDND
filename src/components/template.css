@@ -1,0 +1,92 @@
+:root {
+  --primary: #222831;
+  --secondary: #00adb5;
+  --inactive: #393e46;
+  --grey: #eeeeee;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-inactive {
+  background-color: var(--inactive);
+}
+.bg-grey {
+  background-color: var(--grey);
+}
+
+.txt-primary {
+  color: var(--primary);
+}
+
+.txt-secondary {
+  color: var(--secondary);
+}
+.txt-inactive {
+  color: var(--inactive);
+}
+.txt-grey {
+  color: var(--grey);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+.border-inactive {
+  border-color: var(--inactive);
+}
+.border-grey {
+  border-color: var(--grey);
+}
+
+/* hover classes */
+
+.bg-primary:hover {
+  background-color: var(--primary);
+}
+
+.bg-secondary:hover {
+  background-color: var(--secondary);
+}
+.bg-inactive:hover {
+  background-color: var(--inactive);
+}
+.bg-grey:hover {
+  background-color: var(--grey);
+}
+
+.txt-primary:hover {
+  color: var(--primary);
+}
+
+.txt-secondary:hover {
+  color: var(--secondary);
+}
+.txt-inactive:hover {
+  color: var(--inactive);
+}
+.txt-grey:hover {
+  color: var(--grey);
+}
+
+.border-primary:hover {
+  border-color: var(--primary);
+}
+
+.border-secondary:hover {
+  border-color: var(--secondary);
+}
+.border-inactive:hover {
+  border-color: var(--inactive);
+}
+.border-grey:hover {
+  border-color: var(--grey);
+}
