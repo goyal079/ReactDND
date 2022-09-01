@@ -12,7 +12,6 @@ const htmlInput = ``;
 // console.log(parse(htmlInput));
 
 // assert.equal(reactHtml, htmlInput); // true
-
 const Template = () => {
   // const [tempEditor, setTempEditor] = useState(null);
   // useEffect(() => {
@@ -21,15 +20,17 @@ const Template = () => {
   //   });
   //   setTempEditor(editor);
   // }, []);
+  const [selectedTab, setSelected] = useState("1");
+
   const [activeElementSelection, setActiveElementSelelection] = useState(true);
   const [activeTab, setActiveTab] = useState("style");
   return (
     <div style={{ height: "100vh" }}>
       <nav className="bg-primary">
-        <div className="flex h-14 py-3 px-1 ml-80 w-1/6 justify-around txt-grey">
-          <FaLaptop className="w-12 h-9 cursor-pointer" />
-          <FaTabletAlt className="w-12 h-9 cursor-pointer" />
-          <FaMobileAlt className="w-12 h-9 cursor-pointer" />
+        <div className="flex h-14 py-3 px-1 ml-80 w-1/6 justify-around txt-inactive">
+          <FaLaptop className="w-12 h-9 cursor-pointer hover:text-[#00adb5]" />
+          <FaTabletAlt className="w-12 h-9 cursor-pointer hover:text-[#00adb5]" />
+          <FaMobileAlt className="w-12 h-9 cursor-pointer hover:text-[#00adb5]" />
         </div>
       </nav>
       <div className="flex" style={{ height: "92.5%" }}>
@@ -37,11 +38,12 @@ const Template = () => {
           style={{
             width: "23%",
             zIndex: 10,
-            boxShadow: "5px 0 5px 0 #212121",
+            boxShadow: "5px 0 5px -2px #212121",
+            borderTopColor: "#393e46",
           }}
           className="border-solid border border-primary h-full bg-primary shadow-xl"
         >
-          <div className="border-solid border-b-2 p-2 border-inactive h-3/6">
+          <div className="border-solid border-b-2 p-2 border-inactive h-3/6 components">
             {activeElementSelection ? (
               <>
                 <div className="flex justify-between">
@@ -73,14 +75,108 @@ const Template = () => {
                 </div>
               </>
             ) : (
-              <>
-                <button
-                  onClick={(e) => console.log(e.target)}
-                  className="bg-secondary text-white font-bold ml-10 my-5 py-2 px-5 w-60 rounded"
-                >
-                  Button
-                </button>
-              </>
+              <div>
+                <div className="flex my-5 justify-around w-5/6">
+                  <p className="txt-secondary text-lg font-normal py-2">Text</p>
+                  <button
+                    onClick={(e) => console.log(e.target)}
+                    className="bg-secondary text-white font-bold py-2 px-5 w-[140px] rounded-sm"
+                  >
+                    Button Title
+                  </button>
+                </div>
+                <nav className="bg-primary flex w-60">
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "1"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("1")}
+                  >
+                    Tab1
+                  </div>
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "2"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("2")}
+                  >
+                    Tab2
+                  </div>
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "3"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("3")}
+                  >
+                    Tab3
+                  </div>
+                </nav>
+                <div>
+                  <input
+                    className="my-5 h-[38px] bg-inactive w-5/6 p-3 border-2 border-secondary rounded-sm outline-none"
+                    placeholder="&#xf406; Input Box"
+                  />
+                </div>
+                <div>
+                  <input type="range" className="w-3/6" />
+                </div>
+                <div className="flex my-5 justify-around w-5/6">
+                  <p className="txt-secondary text-lg font-normal py-2">Text</p>
+                  <button
+                    onClick={(e) => console.log(e.target)}
+                    className="bg-secondary text-white font-bold py-2 px-5 w-[140px] rounded-sm"
+                  >
+                    Button Title
+                  </button>
+                </div>
+                <nav className="bg-primary flex w-60">
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "1"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("1")}
+                  >
+                    Tab1
+                  </div>
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "2"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("2")}
+                  >
+                    Tab2
+                  </div>
+                  <div
+                    className={`cursor-pointer border-b px-5 ${
+                      selectedTab == "3"
+                        ? "border-secondary txt-secondary"
+                        : "border-grey txt-grey"
+                    }`}
+                    onClick={() => setSelected("3")}
+                  >
+                    Tab3
+                  </div>
+                </nav>
+                <div>
+                  <input
+                    className="my-5 h-[38px] bg-inactive w-5/6 p-3 border-2 border-secondary rounded-sm outline-none"
+                    placeholder="&#xf406; Input Box"
+                  />
+                </div>
+                <div>
+                  <input type="range" className="cursor-pointer w-3/6" />
+                </div>
+              </div>
             )}
           </div>
           <div>
@@ -122,7 +218,10 @@ const Template = () => {
           }}
           className="h-full bg-inactive"
         >
-          <div></div>
+          <div className="container bg-primary rounded-3xl w-340 h-[640px] mx-auto mt-10">
+            <div className="thumb bg-inactive rounded"></div>
+            <div className="screen bg-inactive"></div>
+          </div>
         </div>
         <div
           style={{
